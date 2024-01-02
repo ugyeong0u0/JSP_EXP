@@ -21,7 +21,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
 @Entity
 @Table(name="product")
 public class Product {
@@ -31,28 +30,22 @@ public class Product {
 	@Column(name = "product_id")
 	private Long productId;
 
-	@NonNull //자바와 매핑
-	@Column(unique = true, nullable= false) //데이터베이스와 매핑
+	@Column//데이터베이스와 매핑
 	private String productName;
 
-	@NonNull
-	@Column(nullable= false)
+	@Column
 	private int price;
 
-	@NonNull
-	@Column(nullable= false)
+	@Column
 	private boolean drawCheck;
 
-	@NonNull
-	@Column(nullable= false)
+	@Column
 	private String brand;
 
-	@NonNull
-	@Column(nullable= false)
+	@Column
 	private int size;
 
-	@NonNull
-	@Column(nullable= false)
+	@Column
 	private boolean gender;
 
 	private Category category;
