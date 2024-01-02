@@ -3,6 +3,7 @@ package edu.fisa.lab.model.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.fisa.lab.customer.dto.CustomerDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,31 +12,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
-@RequiredArgsConstructor
+@Setter
+@Builder
 @Entity
 @Table(name="customer")
 public class Customer {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
 	private Long customerId;
 
-	@NonNull
-	@Column(unique = true, nullable= false)
-	private Long id;
+	@Column
+	private String id;
 
-	@NonNull
-	@Column(unique = true, nullable= false)
+	@Column
 	private String password;
 
 	@OneToMany(mappedBy = "customer") // entity 클래스의 teamId변수를 기준으로 매핑
