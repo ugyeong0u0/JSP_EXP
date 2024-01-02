@@ -58,7 +58,7 @@ public class Product {
 	private Category category;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "customer_id", nullable = false) // Team4의 pk 변수에 선언된 매핑된 컬럼명
+	@JoinColumn(name = "customer_id") // Team4의 pk 변수에 선언된 매핑된 컬럼명
 	private Customer customer;
 	
 	

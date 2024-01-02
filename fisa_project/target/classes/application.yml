@@ -11,7 +11,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: user01
-    url: jdbc:mysql://127.0.0.1:8777/fisa?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://127.0.0.1:8889/fisa?useSSL=false&allowPublicKeyRetrieval=true
     username: user01
     
   jpa:
@@ -21,11 +21,10 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true 
-    
-  mvc:
+  mvc:        # jsp 사용을 위한 필수 설정, WEB-INF 폴더 직접 만들고, pom.xml에 설정, ProbonoController의 메소드 setViewName()확인하기
     view:
       prefix: /WEB-INF/
-      suffix: .jsp  
+      suffix: .jsp
 ---
 
 spring:
