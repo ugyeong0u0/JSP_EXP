@@ -32,7 +32,6 @@ import lombok.ToString;
 @Table(name="product")
 @Entity
 public class Product {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
@@ -45,16 +44,10 @@ public class Product {
 	private int price;
 
 	@Column
-	private boolean drawCheck;
-
-	@Column
 	private String brand;
 
 	@Column
 	private int size;
-
-	@Column
-	private boolean gender;
 
 	private Category category;
 	
@@ -65,5 +58,4 @@ public class Product {
 		this.customerList.add(c);
 		c.setProduct(this);
 	}
-
 }

@@ -17,22 +17,18 @@ public class ProductDto {
 
 	private String productName;
 	private int price;
-	private boolean drawCheck;
 	private String brand;
 	private int size;
-	private boolean gender;
 	private Category category;
 
 	
 	public Product toEntity(ProductDto productDto) {
 		return Product.builder()
 				.productName(productDto.getProductName())
-				.price(productDto.getPrice())
-				.drawCheck(productDto.isDrawCheck())
+				.price(Integer.valueOf(productDto.getPrice()))
 				.brand(productDto.getBrand())
-				.size(productDto.getSize())
-				.gender(productDto.isGender())
-				.category(productDto.getCategory())
+				.size(Integer.valueOf(productDto.getSize()))
+				.category(Category.top)
 				.build();	
 	}
 	
@@ -40,10 +36,8 @@ public class ProductDto {
 		return ProductDto.builder()
 				.productName(product.getProductName())
 				.price(product.getPrice())
-				.drawCheck(product.isDrawCheck())
 				.brand(product.getBrand())
 				.size(product.getSize())
-				.gender(product.isGender())
 				.category(product.getCategory())
 				.build();
 	}
