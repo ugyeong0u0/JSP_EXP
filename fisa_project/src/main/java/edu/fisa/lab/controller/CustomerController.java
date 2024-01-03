@@ -28,13 +28,13 @@ public class CustomerController {
 		customerService.insertCustomer(customerDto);
 		PrintWriter out = response.getWriter();
 		
-		String mId = request.getParameter("id");
+		String id = request.getParameter("id");
 		
-		out.print("id : " + mId);
+		out.print("id : " + id);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("id", mId);
-		return "redirect:/main.jsp";//redirect 방식으로 jsp로 이동
+		session.setAttribute("id", id);
+		return "redirect:/pants.jsp";
 	}
 	
 	@RequestMapping(path = "/Draws", method = RequestMethod.PUT)

@@ -46,6 +46,7 @@
 		<a href=pants.jsp onclick="w3_close()" class="w3-bar-item w3-button">하의</a>
 		<a href=top.jsp onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
+		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
 	</nav>
 
 	<!-- Top menu -->
@@ -59,10 +60,19 @@
 	<!-- !PAGE CONTENT! -->
 	<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-		<!-- 버튼 추가 -->
-		<a href=login.html target="_self">
-			<button style="font-size:15px">로그인</button>
-		</a>
+
+		<%
+		//로그인된 아이디가 있는지 읽어와보기
+		String id =(String)session.getAttribute("id");
+		%>
+		
+		<%if(id==null){%>
+			<a href="login.html" target="_self">
+				<button style="font-size:15px">로그인</button>
+			</a>
+		<%}else{ %>	
+			<%= id %> 님 환영합니다.
+		<%} %>
 
 		<!-- 비동기 요청 script 추가 라인-->
 		<script>
