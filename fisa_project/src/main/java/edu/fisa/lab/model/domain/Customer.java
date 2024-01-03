@@ -6,9 +6,12 @@ import java.util.List;
 import edu.fisa.lab.customer.dto.CustomerDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -41,8 +44,8 @@ public class Customer {
 	@Column
 	private String password;
 
-	@OneToMany(mappedBy = "customer") // entity 클래스의 teamId변수를 기준으로 매핑
-	private List<Product> productList = new ArrayList<>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id")
+	private Product product;
 
-	
 }

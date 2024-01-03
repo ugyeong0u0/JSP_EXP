@@ -13,15 +13,28 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class ProductService {
-
+	
 	@Autowired
 	private ProductRepository productRepository;
 	
 	@Transactional
 	public ProductDto productOne(Long productId) {
 		Optional<Product> one = productRepository.findById(productId);
-		ProductDto dto = new ProductDto();
-		dto.setProductName(one.get().getProductName());
+		ProductDto dto = new ProductDto().toDto(one.get());
 		return dto;
+	}
+	
+	@Transactional
+	public List<ProductDto> productAll() {
+		List<Product> pro = productRepository.findAll();
+		List<ProductDto> pList = pro.stream().map(p -> new ProductDto().toDto(p)).toList();
+		return pList;
+	}
+
+	@Transactional
+	public String productInsert(ProductDto productDto) {
+		Product p = new ProductDto().toEntity(productDto);
+		Product product = productRepository.save(p);
+		return product.getProductName();
 	}
 }
