@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,5 +35,18 @@ public class CustomerController {
 		HttpSession session = request.getSession();
 		session.setAttribute("id", mId);
 		return "redirect:/main.jsp";//redirect 방식으로 jsp로 이동
+	}
+	
+	@RequestMapping(path = "/Draws", method = RequestMethod.PUT)
+	public String updateCustomer(Long productId, Long customerId) throws Exception {
+		String check = customerService.updateCustomer(productId, customerId);
+		return check;
+	}
+	
+	@ExceptionHandler
+	public String exceptionHandler(Exception e, Model m) {
+		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage());
+		e.printStackTrace();
+		return "forward:showError.jsp";
 	}
 }
