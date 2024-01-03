@@ -39,7 +39,7 @@ public class Customer {
 	private Long customerId;
 
 	@Column
-	private String id;
+	private String name;
 
 	@Column
 	private String password;

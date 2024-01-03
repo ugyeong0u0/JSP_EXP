@@ -15,11 +15,11 @@ import lombok.ToString;
 @ToString
 @Builder
 public class CustomerDto {
-	private String id;
+	private String name;
 	private String password;
 	
 	public Customer toEntity(CustomerDto customerDto) {
-		return Customer.builder().id(customerDto.getId()).password(customerDto.getPassword()).build();
+		return Customer.builder().name(customerDto.getName()).password(customerDto.getPassword()).build();
 	}
 
 }

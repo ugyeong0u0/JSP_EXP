@@ -42,5 +42,4 @@ public class ProbonoRestController {
 		boolean result = probonoService.addActivist(activist);
 		return result ? "기부자 가입 완료" : "가입실패";
 	}
-
 }

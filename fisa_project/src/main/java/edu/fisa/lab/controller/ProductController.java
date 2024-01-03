@@ -29,6 +29,7 @@ public class ProductController {
 	 * */
 	@RequestMapping(path = "/productOne", method = RequestMethod.GET)
 	public ProductDto productOne(@RequestParam("productId") Long productId) {
+		
 		ProductDto one = productService.productOne(productId);
 		return one;	
 	}

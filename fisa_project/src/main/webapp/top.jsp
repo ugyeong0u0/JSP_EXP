@@ -73,37 +73,6 @@
 			<%= id %> 님 환영합니다.
 		<%} %>
 
-		<!-- 비동기 요청 script 추가 라인-->
-		<script>
-			// step02 -비동기 통신
-			document.querySelector("#btn").addEventListener("click", function () {
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function () {
-					//alert(this.readyState);
-					if (this.readyState == 4 && this.status == 200) {
-						let data = this.responseText;
-						data = JSON.parse(data);
-						alert(data[0].deptno);
-						let printHtmlTable = `
-					  	<table border="1">
-						  <tr><th>부서번호</th><th>부서명</th><th>부서위치</th></tr>
-						  `;
-						for (v in data) {
-							printHtmlTable = printHtmlTable + `<tr>
-									<td>${data[v].deptno}</td>
-									<td>${data[v].dname}</td>
-									<td>${data[v].loc}</td></tr>`
-						};
-						printHtmlTable = printHtmlTable + `</table>`;
-						document.getElementById("dataView").innerHTML = printHtmlTable;
-					}
-				};
-				<!-- WebServlet("/dept") -->
-				xhttp.open("GET", "dept", true);
-				xhttp.send();
-			});
-		</script>
-
 		<!-- First Photo Grid-->
 		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
 			<div class="w3-quarter">

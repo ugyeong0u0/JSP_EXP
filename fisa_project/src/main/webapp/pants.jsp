@@ -63,15 +63,16 @@
 
 		<%
 		//로그인된 아이디가 있는지 읽어와보기
-		String id =(String)session.getAttribute("id");
+		Long customerId =(Long)session.getAttribute("customerId");
+		String name =(String)session.getAttribute("name");
 		%>
 		
-		<%if(id==null){%>
+		<%if(customerId==null){%>
 			<a href="login.html" target="_self">
 				<button style="font-size:15px">로그인</button>
 			</a>
 		<%}else{ %>	
-			<%= id %> 님 환영합니다.
+			<%= name %> 님 환영합니다.
 		<%} %>
 
 		<!-- First Photo Grid-->
@@ -81,8 +82,8 @@
 				<h4>Thom Browne 4 Bar Cotton Loopback Sweatpants Navy (21FW)</h4>
 				<p>가격 625,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(1)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -91,7 +92,7 @@
 				<p>가격 220,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(2)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -100,7 +101,7 @@
 				<p>가격 149,500원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(3)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -109,7 +110,7 @@
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(4)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -122,7 +123,7 @@
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(5)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -131,7 +132,7 @@
 				<p>가격 490,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(6)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -140,7 +141,7 @@
 				<p>가격 205,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(7)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -149,7 +150,7 @@
 				<p>가격 109,000원</p>
 				<!-- 버튼 추가 -->
 				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+					<button onclick="drawView(8)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -176,6 +177,13 @@
 		function w3_close() {
 			document.getElementById("mySidebar").style.display = "none";
 		}
+
+		//한명 정보 검색시 호출되는 함수
+		function drawView(v){	
+			var xhttp = new XMLHttpRequest();
+			xhttp.open( "get", "Draws?productId="+v);
+			xhttp.send();
+		}	
 	</script>
 
 </body>
