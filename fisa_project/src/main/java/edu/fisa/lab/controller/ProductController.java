@@ -3,6 +3,7 @@ package edu.fisa.lab.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import edu.fisa.lab.customer.dto.ProductDto;
 import edu.fisa.lab.model.domain.Product;
@@ -34,10 +36,18 @@ public class ProductController {
 		return one;	
 	}
 	
+	/* 요청시 select 후 요청 객체에 데이터 저장 후 allpage.jsp 웹페이지 이동 및 응답
+	 * 요청 객체 , jsp 이름 인식
+	 * 
+	 */
 	@RequestMapping(path = "/productAll", method = RequestMethod.GET)
-	public List<ProductDto> productAll() {
+	public ModelAndView productAll() {
 		List<ProductDto> one = productService.productAll();
-		return one;
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("productAll", one);
+		mv.setViewName("allpage");
+		System.out.println("=== " + one);
+		return mv;
 	}
 	
 	/*

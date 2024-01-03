@@ -47,6 +47,7 @@
 		<a href=top.jsp onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
 		<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
 		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
+		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
 	</nav>
 
 	<!-- Top menu -->
