@@ -19,7 +19,6 @@ import edu.fisa.lab.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 
 @Service
-@Transactional
 public class CustomerService {
 
 	@Autowired
@@ -37,13 +36,12 @@ public class CustomerService {
 		customerRepository.save(c);
 		return c.getCustomerId();
 	}
-
 	
-
-	public void updateCustomer(Long customerId, Long productId) throws Exception {
+	@Transactional
+	public void insertCustomer(Long customerId, Long productId) throws Exception {
 		Optional<Customer> c = customerRepository.findById(customerId);
 		Optional<Product> p = productRepository.findById(productId);
-		p.get().addProduct(c.get());
+		c.get().addProduct(p.get());
 		customerRepository.save(c.get());
 	}
 	
@@ -57,7 +55,6 @@ public class CustomerService {
 	@Transactional
 	public List<DrawDto> customerDraw(Long customerId) {
 		Optional<Customer> c = customerRepository.findById(customerId);
-		
 		return null;
 	}
 }

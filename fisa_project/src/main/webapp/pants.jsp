@@ -83,6 +83,7 @@
 				<h4>Thom Browne 4 Bar Cotton Loopback Sweatpants Navy (21FW)</h4>
 				<p>가격 625,000원</p>
 				<!-- 버튼 추가 -->
+				<!-- 버튼 추가 -->
 				<a href="#pant1" id="btn">
 					<button onclick="drawView(1)" style="font-size:10px">응모하기</button>
 				</a>
@@ -92,7 +93,7 @@
 				<h4>Stussy Airbrush Icon Beach Pants Black</h4>
 				<p>가격 220,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant2" id="btn">
 					<button onclick="drawView(2)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -101,7 +102,8 @@
 				<h4>Jordan x Travis Scott Shorts Light Iron Ore - Asia</h4>
 				<p>가격 149,500원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+			<!-- 버튼 추가 -->
+				<a href="#pant3" id="btn">
 					<button onclick="drawView(3)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -110,7 +112,7 @@
 				<h4>Burberry Check Swim Shorts Archive Beige</h4>
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant4" id="btn">
 					<button onclick="drawView(4)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -123,7 +125,7 @@
 				<h4>Burberry Check Swim Shorts Archive Beige</h4>
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant5" id="btn">
 					<button onclick="drawView(5)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -132,7 +134,7 @@
 				<h4>Maison Margiela Dirty Wash Jeans Dirty Wash</h4>
 				<p>가격 490,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant6" id="btn">
 					<button onclick="drawView(6)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -141,7 +143,7 @@
 				<h4>Jordan x Russell Westbrook Honor the Gift Men’s Pants</h4>
 				<p>가격 205,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant1" id="btn">
 					<button onclick="drawView(7)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -150,7 +152,7 @@
 				<h4>Puma x AMI Sweatpants Jaffa Orange</h4>
 				<p>가격 109,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
+				<a href="#pant1" id="btn">
 					<button onclick="drawView(8)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
@@ -179,7 +181,7 @@
 			document.getElementById("mySidebar").style.display = "none";
 		}
 
-		//한명 정보 검색시 호출되는 함수
+				//한명 정보 검색시 호출되는 함수
 		function drawView(v){	
 			var xhttp = new XMLHttpRequest();
 			xhttp.open( "get", "Draws?productId="+v);

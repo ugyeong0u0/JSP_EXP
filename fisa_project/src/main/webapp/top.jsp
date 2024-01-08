@@ -63,15 +63,16 @@
 
 		<%
 		//로그인된 아이디가 있는지 읽어와보기
-		String id =(String)session.getAttribute("id");
+		Long customerId =(Long)session.getAttribute("customerId");
+		String name =(String)session.getAttribute("name");
 		%>
 		
-		<%if(id==null){%>
+		<%if(customerId==null){%>
 			<a href="login.html" target="_self">
 				<button style="font-size:15px">로그인</button>
 			</a>
 		<%}else{ %>	
-			<%= id %> 님 환영합니다.
+			<%= name %> 님 환영합니다.
 		<%} %>
 
 		<!-- First Photo Grid-->
@@ -81,8 +82,8 @@
 				<h4>Barbour Annandale Quilted Jacket Black</h4>
 				<p>가격 228,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(1)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -90,8 +91,8 @@
 				<h4>Isabel Marant Moby Sweatshirt Ecru Black</h4>
 				<p>가격 320,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(2)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -99,8 +100,8 @@
 				<h4>Moncler Padded Wool Cardigan Black - 23FW</h4>
 				<p>가격 1,166,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(3)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -108,8 +109,8 @@
 				<h4>Play Comme des Garcons Black Heart Knit Cardigan Grey</h4>
 				<p>가격 300,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(4)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -121,8 +122,8 @@
 				<h4>Stussy Basic Stussy Hoodie Black 2023</h4>
 				<p>가격 207,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(5)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -130,8 +131,8 @@
 				<h4>The North Face White Label Novelty Nuptse Down Jacket Ice Gray</h4>
 				<p>가격 280,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(6)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -139,8 +140,8 @@
 				<h4>Thom Browne Donegal Twist Cable 4-Bar Classic Crewneck Pullover Light Grey</h4>
 				<p>가격 510,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(7)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -148,8 +149,8 @@
 				<h4>Vivienne Westwood Bea Top Black</h4>
 				<p>가격 257,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant1" id="btn">
+					<button onclick="drawView(8)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -176,6 +177,12 @@
 		function w3_close() {
 			document.getElementById("mySidebar").style.display = "none";
 		}
+
+		function drawView(v){	
+			var xhttp = new XMLHttpRequest();
+			xhttp.open( "get", "Draws?productId="+v);
+			xhttp.send();
+		}	
 	</script>
 
 </body>

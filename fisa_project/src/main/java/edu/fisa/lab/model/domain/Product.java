@@ -32,6 +32,7 @@ import lombok.ToString;
 @Table(name="product")
 @Entity
 public class Product {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
@@ -51,11 +52,8 @@ public class Product {
 
 	private Category category;
 	
-	@OneToMany(mappedBy = "product")
-	private List<Customer> customerList = new ArrayList<>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
 	
-	public void addProduct(Customer c) {
-		this.customerList.add(c);
-		c.setProduct(this);
-	}
 }

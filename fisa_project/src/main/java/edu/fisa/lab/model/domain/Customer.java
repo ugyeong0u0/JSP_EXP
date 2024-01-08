@@ -44,8 +44,11 @@ public class Customer {
 	@Column
 	private String password;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "product_id")
-	private Product product;
-
+	@OneToMany(mappedBy = "customer")
+	private List<Product> productList = new ArrayList<>();
+	
+	public void addProduct(Product p) {
+		p.setCustomer(this);
+		this.productList.add(p);
+	}
 }

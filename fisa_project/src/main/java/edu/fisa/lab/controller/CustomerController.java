@@ -37,20 +37,12 @@ public class CustomerController {
 		return "redirect:/pants.jsp";
 	}
 	
-//	@RequestMapping(path = "/productDraw", method = RequestMethod.GET)
-//	public List<DrawDto> productDraw(HttpServletRequest request) {
-//		HttpSession session = request.getSession();
-//		Long customerId = (Long) session.getAttribute("customerId");
-//		DrawDto one = customerService.customerDraw(customerId);
-//		return one;
-//	}
-	
-	//고객이 응모한 상품
+	//고객이 응모한 상품추가
 	@RequestMapping(path = "/Draws", method = RequestMethod.GET)
 	public String updateCustomer(Long productId, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		Long customerId = (Long) session.getAttribute("customerId");		
-		customerService.updateCustomer(customerId, productId);
+		customerService.insertCustomer(customerId, productId);
 		return "redirect:/pants.jsp";
 	}
 	
