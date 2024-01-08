@@ -185,22 +185,6 @@
 	//기부자 한명 정보 검색시 호출되는 함수
 	function activistOneView(v){		
 		const xhttp = new XMLHttpRequest();		
-		xhttp.onload = function() {			
-			let data = JSON.parse(this.responseText);
-			
-			let tableElement =`
-				선택한 기부자 정보 <br>	
-				<table border="1">
-					<tr><th>activist_id</th><th>name</th><th>major</th></tr>
-					<tr>
-						<td>${data.id}</td>
-				 		<td>${data.name}</td>
-				 		<td>${data.major}</td>
-			 		</tr>
-				</table>`;
-
-			document.getElementById("activistOneView").innerHTML = tableElement;
-		};
 		
 		xhttp.open( "GET", "activist?id="+v);
 		xhttp.send();

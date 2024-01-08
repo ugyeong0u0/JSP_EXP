@@ -66,18 +66,18 @@ System.out.println(request.getAttribute("productAll"));
 	<!-- !PAGE CONTENT! -->
 	<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-
 		<%
 		//로그인된 아이디가 있는지 읽어와보기
-		String id =(String)session.getAttribute("id");
+		Long customerId =(Long)session.getAttribute("customerId");
+		String name =(String)session.getAttribute("name");
 		%>
 		
-		<%if(id==null){%>
+		<%if(customerId==null){%>
 			<a href="login.html" target="_self">
 				<button style="font-size:15px">로그인</button>
 			</a>
 		<%}else{ %>	
-			<%= id %> 님 환영합니다.
+			<%= name %> 님 환영합니다.
 		<%} %>
 
 		

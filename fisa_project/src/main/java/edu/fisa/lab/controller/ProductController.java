@@ -31,6 +31,7 @@ public class ProductController {
 	 * */
 	@RequestMapping(path = "/productOne", method = RequestMethod.GET)
 	public ProductDto productOne(@RequestParam("productId") Long productId) {
+		
 		ProductDto one = productService.productOne(productId);
 		return one;	
 	}
@@ -49,6 +50,7 @@ public class ProductController {
 		return mv;
 	}
 	
+
 	/*
 	 * 상품 저장 파트 
 	 * */

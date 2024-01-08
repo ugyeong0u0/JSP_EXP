@@ -64,47 +64,17 @@
 
 		<%
 		//로그인된 아이디가 있는지 읽어와보기
-		String id =(String)session.getAttribute("id");
+		Long customerId =(Long)session.getAttribute("customerId");
+		String name =(String)session.getAttribute("name");
 		%>
 		
-		<%if(id==null){%>
+		<%if(customerId==null){%>
 			<a href="login.html" target="_self">
 				<button style="font-size:15px">로그인</button>
 			</a>
 		<%}else{ %>	
-			<%= id %> 님 환영합니다.
+			<%= name %> 님 환영합니다.
 		<%} %>
-
-		<!-- 비동기 요청 script 추가 라인-->
-		<script>
-			// step02 -비동기 통신
-			document.querySelector("#btn").addEventListener("click", function () {
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function () {
-					//alert(this.readyState);
-					if (this.readyState == 4 && this.status == 200) {
-						let data = this.responseText;
-						data = JSON.parse(data);
-						alert(data[0].deptno);
-						let printHtmlTable = `
-					  	<table border="1">
-						  <tr><th>부서번호</th><th>부서명</th><th>부서위치</th></tr>
-						  `;
-						for (v in data) {
-							printHtmlTable = printHtmlTable + `<tr>
-									<td>${data[v].deptno}</td>
-									<td>${data[v].dname}</td>
-									<td>${data[v].loc}</td></tr>`
-						};
-						printHtmlTable = printHtmlTable + `</table>`;
-						document.getElementById("dataView").innerHTML = printHtmlTable;
-					}
-				};
-				<!-- WebServlet("/dept") -->
-				xhttp.open("GET", "dept", true);
-				xhttp.send();
-			});
-		</script>
 
 		<!-- First Photo Grid-->
 		<div class="w3-row-padding w3-padding-16 w3-center" id="food">
@@ -113,8 +83,8 @@
 				<h4>ADIDAS WONDER RUNNER WHITE BLACK</h4>
 				<p>가격 625,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant5" id="btn">
+					<button onclick="drawView(1)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			
@@ -123,8 +93,8 @@
 				<h4>ASICS GEL-KAYANO 14 WMNS CLOUD GREY</h4>
 				<p>가격 220,000원</p>
 				<!-- 버튼 추가 --> 
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(2)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -132,8 +102,8 @@
 				<h4>CONVERSE ADER ERROR X CONVERSE CHUCK 70 LOW TOP IMPERIAL BLUE</h4>
 				<p>가격 149,500원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(3)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -141,8 +111,8 @@
 				<h4>CROCS SALEHE BEMBURY X CROCS POLLEX HORCHATA</h4>
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(4)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -154,8 +124,8 @@
 				<h4>MAISON MIHARA YASUHIRO 71 MICHAEL X MIHARA YASUHIRO WAYNE OG SOLE EMBROIDERY BLACK</h4>
 				<p>가격 374,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(5)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -163,8 +133,8 @@
 				<h4>NEW BALANCE 1906N ANGORA BLUE LAGUNA</h4>
 				<p>가격 490,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(6)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -172,8 +142,8 @@
 				<h4>NIKE DUNK LOW RED STARDUST</h4>
 				<p>가격 205,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(7)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 			<div class="w3-quarter">
@@ -181,8 +151,8 @@
 				<h4>SALOMON ACS+ OG QUARRY BLUE PRINT GREEN ASH</h4>
 				<p>가격 109,000원</p>
 				<!-- 버튼 추가 -->
-				<a href="#dataView" id="btn">
-					<button onclick="alert('응모되었습니다')" style="font-size:10px">응모하기</button>
+				<a href="#pant2" id="btn">
+					<button onclick="drawView(8)" style="font-size:10px">응모하기</button>
 				</a>
 			</div>
 		</div>
@@ -208,6 +178,12 @@
 
 		function w3_close() {
 			document.getElementById("mySidebar").style.display = "none";
+		}
+
+		function drawView(v){	
+			var xhttp = new XMLHttpRequest();
+			xhttp.open( "get", "Draws?productId="+v);
+			xhttp.send();
 		}
 	</script>
 
