@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.fisa.lab.customer.dto.ProductDto;
+import edu.fisa.lab.model.domain.Category;
 import edu.fisa.lab.model.domain.Product;
 import edu.fisa.lab.repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -33,6 +34,15 @@ public class ProductService {
 
 	@Transactional
 	public String productInsert(ProductDto productDto) {
+		
+		if(productDto.getClassify().equals("바지")) {
+			productDto.setCategory(Category.pants);
+		} else if(productDto.getClassify().equals("상의")) {
+			productDto.setCategory(Category.top);
+		} else {
+			productDto.setCategory(Category.shoese);
+		}
+		System.out.println(productDto.getClassify());
 		Product p = new ProductDto().toEntity(productDto);
 		Product product = productRepository.save(p);
 		return product.getProductName();
