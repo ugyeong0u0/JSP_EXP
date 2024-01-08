@@ -56,7 +56,6 @@ public class ProductController {
 	 * */
 	@RequestMapping(path = "/productSave", method = RequestMethod.POST)
 	public String productInsert(ProductDto productDto) {
-		System.out.println(productDto.getBrand());
 		productService.productInsert(productDto);
 		return "redirect:/pants.jsp";
 	}

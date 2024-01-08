@@ -19,6 +19,8 @@ public class ProductDto {
 	private int price;
 	private String brand;
 	private int size;
+	private String classify; 
+	private Category category;
 
 	public Product toEntity(ProductDto productDto) {
 		return Product.builder()
@@ -26,6 +28,7 @@ public class ProductDto {
 				.price(Integer.valueOf(productDto.getPrice()))
 				.brand(productDto.getBrand())
 				.size(Integer.valueOf(productDto.getSize()))
+				.category(productDto.getCategory())
 				.build();	
 	}
 	
@@ -36,6 +39,7 @@ public class ProductDto {
 				.price(product.getPrice())
 				.brand(product.getBrand())
 				.size(product.getSize())
+				.category(product.getCategory())
 				.build();
 	}
 }
