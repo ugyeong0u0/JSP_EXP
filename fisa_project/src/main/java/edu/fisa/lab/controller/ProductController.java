@@ -53,12 +53,12 @@ public class ProductController {
 	}
 	
 	@RequestMapping(path = "/productIdView", method = RequestMethod.GET)
-	public ModelAndView findByCustomerId(long id) {
-		Long i = productService.findByCustomerId(id);
-		System.out.println("++++ " + i);
+	public ModelAndView findAllByCustomerId(long id) {
+		List<ProductDto> pd = productService.findAllByCustomerId(id);
+		System.out.println("++++ " + pd);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("find");
-		mv.addObject("id", i);
+		mv.addObject("id", pd);
 		return mv;
 	}
 }

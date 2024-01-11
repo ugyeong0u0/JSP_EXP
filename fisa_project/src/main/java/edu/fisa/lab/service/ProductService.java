@@ -48,11 +48,11 @@ public class ProductService {
 		return product.getProductName();
 	}
 	
-	public Long findByCustomerId(Long customerId) {
+	public List<ProductDto> findAllByCustomerId(Long customerId) {
 		
-		Long id = productRepository.findByCustomerId(customerId);
-		System.out.println("--- " + id);
-		return id;
+		List<ProductDto> pd2 = productRepository.findAllByCustomerId(customerId);
+		System.out.println("--- " + pd2);
+		return pd2;
 	}
 	
 }
