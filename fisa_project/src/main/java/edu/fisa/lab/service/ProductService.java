@@ -47,4 +47,12 @@ public class ProductService {
 		Product product = productRepository.save(p);
 		return product.getProductName();
 	}
+	
+	public Long findByCustomerId(Long customerId) {
+		
+		Long id = productRepository.findByCustomerId(customerId);
+		System.out.println("--- " + id);
+		return id;
+	}
+	
 }

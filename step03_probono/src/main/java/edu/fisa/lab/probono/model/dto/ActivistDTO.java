@@ -1,4 +1,4 @@
-﻿/**
+/**
 CREATE TABLE activist (
        activist_id          	VARCHAR2(20)  PRIMARY KEY,
        name               	VARCHAR2(20) NOT NULL,
@@ -6,6 +6,7 @@ CREATE TABLE activist (
        major                	VARCHAR2(50) NOT NULL
 ); */
 package edu.fisa.lab.probono.model.dto;
+
 
 import edu.fisa.lab.probono.model.entity.Activist;
 import lombok.AllArgsConstructor;

@@ -37,10 +37,13 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
 	private Long customerId;
-
+	
 	@Column
 	private String name;
-
+	
+	@Column
+	private String id;
+	
 	@Column
 	private String password;
 

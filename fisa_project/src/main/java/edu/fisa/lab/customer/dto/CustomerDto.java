@@ -16,10 +16,12 @@ import lombok.ToString;
 @Builder
 public class CustomerDto {
 	private String name;
+	private String id;	
 	private String password;
 	
 	public Customer toEntity(CustomerDto customerDto) {
 		return Customer.builder()
+				.id(customerDto.getId())
 				.name(customerDto.getName())
 				.password(customerDto.getPassword())
 				.build();
