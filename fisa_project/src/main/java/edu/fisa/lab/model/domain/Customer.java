@@ -42,9 +42,6 @@ public class Customer {
 	private String name;
 	
 	@Column
-	private String id;
-	
-	@Column
 	private String password;
 
 	@OneToMany(mappedBy = "customer")
@@ -53,5 +50,10 @@ public class Customer {
 	public void addProduct(Product p) {
 		p.setCustomer(this);
 		this.productList.add(p);
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", name=" + name + ", password=" + password + "]";
 	}
 }

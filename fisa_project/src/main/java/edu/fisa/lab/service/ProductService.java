@@ -49,10 +49,13 @@ public class ProductService {
 	}
 	
 	public List<ProductDto> findAllByCustomerId(Long customerId) {
-		
 		List<ProductDto> pd2 = productRepository.findAllByCustomerId(customerId);
-		System.out.println("--- " + pd2);
 		return pd2;
 	}
+	
+//	public List<Product> findAllByCustomerId(Long customerId) {
+//		List<Product> pd2 = productRepository.findAllByCustomer_Id(customerId);
+//		return pd2;
+//	}
 	
 }

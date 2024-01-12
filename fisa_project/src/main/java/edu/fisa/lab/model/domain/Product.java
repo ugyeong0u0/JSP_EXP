@@ -21,9 +21,16 @@ import lombok.Setter;
 @Setter
 @Builder  
 
+
 @Table(name="product")
 @Entity
 public class Product {
+
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", price=" + price + ", brand="
+				+ brand + ", size=" + size + ", category=" + category + "]";
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
