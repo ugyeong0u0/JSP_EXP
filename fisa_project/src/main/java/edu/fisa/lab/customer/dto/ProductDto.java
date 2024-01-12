@@ -42,4 +42,16 @@ public class ProductDto {
 				.category(product.getCategory())
 				.build();
 	}
+
+
+	public ProductDto(String productName, int price, String brand, int size, Category category) {
+		super();
+		this.productName = productName;
+		this.price = price;
+		this.brand = brand;
+		this.size = size;
+		this.category = category;
+	}
+	
+	
 }

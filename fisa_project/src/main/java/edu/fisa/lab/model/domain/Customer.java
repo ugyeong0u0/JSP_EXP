@@ -37,10 +37,10 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
 	private Long customerId;
-
+	
 	@Column
 	private String name;
-
+	
 	@Column
 	private String password;
 
@@ -50,5 +50,10 @@ public class Customer {
 	public void addProduct(Product p) {
 		p.setCustomer(this);
 		this.productList.add(p);
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", name=" + name + ", password=" + password + "]";
 	}
 }

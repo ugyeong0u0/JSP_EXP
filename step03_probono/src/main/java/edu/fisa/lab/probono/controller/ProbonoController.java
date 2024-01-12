@@ -18,6 +18,8 @@ import edu.fisa.lab.probono.model.dto.ActivistDTO;
  * 
  * application.yml 파일의 jsp 관련 설정 확인 후 이해하기
  */
+
+
 @Controller
 public class ProbonoController {
 

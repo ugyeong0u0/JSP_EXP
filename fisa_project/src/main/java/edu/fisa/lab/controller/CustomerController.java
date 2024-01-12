@@ -1,8 +1,6 @@
 package edu.fisa.lab.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.fisa.lab.customer.dto.CustomerDto;
-import edu.fisa.lab.customer.dto.DrawDto;
-import edu.fisa.lab.customer.dto.ProductDto;
 import edu.fisa.lab.service.CustomerService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

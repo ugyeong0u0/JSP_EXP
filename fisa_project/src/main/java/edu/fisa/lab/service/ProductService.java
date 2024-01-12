@@ -47,4 +47,15 @@ public class ProductService {
 		Product product = productRepository.save(p);
 		return product.getProductName();
 	}
+	
+	public List<ProductDto> findAllByCustomerId(Long customerId) {
+		List<ProductDto> pd2 = productRepository.findAllByCustomerId(customerId);
+		return pd2;
+	}
+	
+//	public List<Product> findAllByCustomerId(Long customerId) {
+//		List<Product> pd2 = productRepository.findAllByCustomer_Id(customerId);
+//		return pd2;
+//	}
+	
 }

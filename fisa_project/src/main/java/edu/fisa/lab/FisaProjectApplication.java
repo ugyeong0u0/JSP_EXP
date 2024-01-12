@@ -9,5 +9,6 @@ public class FisaProjectApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(FisaProjectApplication.class, args);
+		
 	}
 }
