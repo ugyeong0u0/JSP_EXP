@@ -43,11 +43,12 @@
 	<!-- Sidebar -->
 	<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
 		style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
-		<a href=pants.jsp onclick="w3_close()" class="w3-bar-item w3-button">하의</a>
-		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">하의</a>
+		<a href=top.jsp onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
 		<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
-	<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
-	<a href=allpage.jsp onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
+		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
+		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
+		<a href="productIdView" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
 	</nav>
 
 	<!-- Top menu -->

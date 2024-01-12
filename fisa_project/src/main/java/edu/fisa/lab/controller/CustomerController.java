@@ -45,7 +45,7 @@ public class CustomerController {
 	@ExceptionHandler
 	public String exceptionHandler(Exception e, Model m) {
 		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage());
-		e.printStackTrace();
+		e.printStackTrace();	
 		return "forward:showError.jsp";
 	}
 }

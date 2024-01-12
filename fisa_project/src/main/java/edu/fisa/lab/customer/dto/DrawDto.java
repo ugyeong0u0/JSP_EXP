@@ -25,7 +25,7 @@ public class DrawDto {
 	
 	public DrawDto toDto(Product product, Customer customer) {
 		return DrawDto.builder()
-				.name(customer.getName())
+				.name (customer.getName())
 				.productName(product.getProductName())
 				.price(product.getPrice())
 				.brand(product.getBrand())

@@ -2,7 +2,9 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<% System.out.println("*************jsp " + request.getAttribute("id")); %>
+<%
+System.out.println("*************jsp " + request.getAttribute("productIdView"));
+%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +12,7 @@
 
 
 <head>
-<title>전체 상품 조회</title>
+<title>고객이 응모한 상품 조회</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,17 +41,15 @@ body, h1, h2, h3, h4, h5, h6 {
 <body>
 
 	<!-- Sidebar -->
-	<nav
-		class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
-		style="display:none;z-index:2;width:40%;min-width:300px"
-		id="mySidebar"> <a href="javascript:void(0)"
-		onclick="w3_close()" class="w3-bar-item w3-button">하의</a> <a
-		href=top.jsp onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
-	<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
-	<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품
-		저장 페이지</a> <a href="productAll" onclick="w3_close()"
-		class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
-		<a href="find.jsp" onclick="w3_close()" class="w3-bar-item w3-button">응모내역 조회</a></nav>
+	<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
+		style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">하의</a>
+		<a href=top.jsp onclick="w3_close()" class="w3-bar-item w3-button">상의</a>
+		<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
+		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
+		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
+		<a href="productIdView" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
+	</nav>
 
 
 	<!-- Top menu -->
@@ -65,81 +65,44 @@ body, h1, h2, h3, h4, h5, h6 {
 	</div>
 
 	<!-- !PAGE CONTENT! -->
-	<div class="w3-main w3-content w3-padding"
-		style="max-width: 1200px; margin-top: 100px">
+	<div class="w3-main w3-content w3-padding" style="max-width: 1200px; margin-top: 100px">
 
 		<%
 		//로그인된 아이디가 있는지 읽어와보기
-		Long customerId = (Long) session.getAttribute("customerId");
-		String name = (String) session.getAttribute("name");
+		Long customerId =(Long)session.getAttribute("customerId");
+		String name =(String)session.getAttribute("name");
 		%>
+		
+		<%if(customerId==null){%>
+			<a href="login.html" target="_self">
+				<button style="font-size:15px">로그인</button>
+			</a>
+		<%}else{ %>	
+			<%= name %> 님 환영합니다.
+		<%} %>
 
-		<%
-		if (customerId == null) {
-		%>
-		<a href="login.html" target="_self">
-			<button style="font-size: 15px">로그인</button>
-		</a>
-		<%
-		} else {
-		%>
-		<%=name%>
-		님 환영합니다.
-		<%
-		}
-		%>
+	<table border="1">
+			<thead>
+				<tr>
+					<th>상품 name</th><th>price</th><th>브랜드</th><th>size</th>
+					<th>classify</th><th>category</th>
+				</tr>
+			</thead>
 
-	</div>
+	<c:forEach items="${requestScope.productIdView}" var="data">
+		 <tr>
+			<td>${data.productName}</td>
+			<td>${data.price}</td>
+			<td>${data.brand}</td>
+			<td>${data.size}</td>
+			<td>${data.classify}</td>
+			<td>${data.category}</td>
+		 </tr>
+	 </c:forEach>
 
-	*** 선택된 기부자 보기 ***
-	<br>
-	<br>
-	<div id="productView" style="display: none;">
-		<table border="1">
-			<tr>
-				<th>No</th>
-				<th>Name</th>
-				<th>Price</th>
-				<th>Brand</th>
-				<th>Size</th>
-				<th>Category</th>
-				<th>C.No</th>
-			</tr>
-			<tr>
-				<td id="productId"></td>
-				<td id="productName"></td>
-				<td id="productPrice"></td>
-				<td id="productBrand"></td>
-				<td id="productSize"></td>
-				<td id="productCategory"></td>
-				<td id="customerId"></td>
-			</tr>
-		</table>
-	</div>
-	<script>
-		//기부자 한명 정보 검색
-		function productOneView(v) {
-			const xhttp = new XMLHttpRequest();
+</table>
+</div>
 
-			xhttp.onload = function() {
-				let data = JSON.parse(this.responseText);
-
-				let tableElement = document.getElementById("productView").style.display = "block";
-
-				document.getElementById("productId").innerHTML = data.productId;
-				document.getElementById("productName").innerHTML = data.productName;
-				document.getElementById("productPrice").innerHTML = data.price;
-				document.getElementById("productBrand").innerHTML = data.brand;
-				document.getElementById("productSize").innerHTML = data.size;
-				document.getElementById("productCategory").innerHTML = data.category;
-				document.getElementById("customerId").innerHTML = data.customerId;
-			};
-
-			xhttp.open("GET", "customer?id=" + v);
-			xhttp.send();
-		}
-	</script>
-	
 	<script>
 		// Script to open and close sidebar
 		function w3_open() {
