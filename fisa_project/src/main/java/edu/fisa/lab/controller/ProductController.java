@@ -2,7 +2,9 @@ package edu.fisa.lab.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.fisa.lab.customer.dto.ProductDto;
 import edu.fisa.lab.model.domain.Product;
 import edu.fisa.lab.service.ProductService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
-@RestController
+@Controller	
 public class ProductController {
 	
 	@Autowired
@@ -52,17 +56,5 @@ public class ProductController {
 		productService.productInsert(productDto);
 		return "redirect:/pants.jsp";
 	}
-	
-//	@RequestMapping(path = "/productIdView", method = RequestMethod.GET)
-//	@GetMapping("/productIdView")
-//	public List<ProductDto> findAllByCustomerId(long id) {
-//		List<ProductDto> pd = productService.findAllByCustomerId(id);
-//		for(int i = 0; i < pd.size(); i++) {
-//			System.out.println(pd.get(i).getProductName());
-//		}
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("find");
-//		mv.addObject("id", pd);
-//		return pd;
-//	}
+
 }

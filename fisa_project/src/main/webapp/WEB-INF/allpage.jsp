@@ -52,6 +52,7 @@ System.out.println(request.getAttribute("productAll"));
 		<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
 		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
 		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
+		<a href="productIdView" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
 	</nav>
 
 

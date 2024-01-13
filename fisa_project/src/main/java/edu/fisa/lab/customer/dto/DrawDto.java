@@ -12,7 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Builder
 public class DrawDto {
 
 	//고객이름 
@@ -23,13 +22,14 @@ public class DrawDto {
 	private int size;
 	private Category category;
 	
-	public DrawDto(String name, String productName, int price, String brand, int size, Category category) {
+
+	public DrawDto(String name, String productName, int price, String brand, int size) {
 		super();
 		this.name = name;
 		this.productName = productName;
 		this.price = price;
 		this.brand = brand;
 		this.size = size;
-		this.category = category;
 	}
+
 }
