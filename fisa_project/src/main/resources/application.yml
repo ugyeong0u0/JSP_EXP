@@ -11,7 +11,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: user01
-    url: jdbc:mysql://127.0.0.1:8777/fisa?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://127.0.0.1:8889/fisa?useSSL=false&allowPublicKeyRetrieval=true
     username: user01
     
   jpa:

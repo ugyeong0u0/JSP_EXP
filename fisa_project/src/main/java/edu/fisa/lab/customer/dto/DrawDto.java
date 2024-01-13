@@ -10,12 +10,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Builder
 public class DrawDto {
-	
+
+	//고객이름 
 	private String name;
 	private String productName;
 	private int price;
@@ -23,14 +22,14 @@ public class DrawDto {
 	private int size;
 	private Category category;
 	
-	public DrawDto toDto(Product product, Customer customer) {
-		return DrawDto.builder()
-				.name (customer.getName())
-				.productName(product.getProductName())
-				.price(product.getPrice())
-				.brand(product.getBrand())
-				.size(product.getSize())
-				.category(product.getCategory())
-				.build();
+
+	public DrawDto(String name, String productName, int price, String brand, int size) {
+		super();
+		this.name = name;
+		this.productName = productName;
+		this.price = price;
+		this.brand = brand;
+		this.size = size;
 	}
+
 }

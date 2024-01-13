@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.fisa.lab.customer.dto.ProductDto;
+import edu.fisa.lab.model.domain.Product;
 import edu.fisa.lab.service.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-@Controller
+@Controller	
 public class ProductController {
 	
 	@Autowired
@@ -47,7 +48,6 @@ public class ProductController {
 		return mv;
 	}
 	
-
 	/*
 	 * 상품 저장 파트 
 	 * */
@@ -56,24 +56,5 @@ public class ProductController {
 		productService.productInsert(productDto);
 		return "redirect:/pants.jsp";
 	}
-	
-	//@RequestMapping(path = "/productIdView", method = RequestMethod.GET)
-	@RequestMapping(path ="/productIdView", method = RequestMethod.GET)
-	public ModelAndView findAllByCustomerId(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		Long customerId = (Long) session.getAttribute("customerId");
-		List<ProductDto> pd = productService.findAllByCustomerId(customerId);
-//		for(int i = 0; i < pd.size(); i++) {
-//			System.out.println(pd.get(i).getProductName());
-//		}
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("find");
-//		mv.addObject("id", pd);
-//		return pd;
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("productIdView", pd);
-		mv.setViewName("find");
-		System.out.println("=== " + pd);
-		return mv;
-	}
+
 }
