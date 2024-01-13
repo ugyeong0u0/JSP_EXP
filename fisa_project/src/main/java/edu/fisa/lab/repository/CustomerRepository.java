@@ -10,4 +10,5 @@ import edu.fisa.lab.model.domain.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 
+	
 }

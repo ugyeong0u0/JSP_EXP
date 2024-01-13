@@ -16,11 +16,11 @@ import edu.fisa.lab.model.domain.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
-	@Query(value = "select "
-			+ "new edu.fisa.lab.customer.dto.ProductDto(p.productName, p.price, p.brand, p.size, p.category)"
-			+ "from Product p join customer c "
-			+ "where c.customerId = :customerId")
-	List<ProductDto> findAllByCustomerId(@Param("customerId") Long customerId);
+//	@Query(value = "select "
+//			+ "new edu.fisa.lab.customer.dto.ProductDto(p.productName, p.price, p.brand, p.size, p.category)"
+//			+ "from Product p join customer c "
+//			+ "where c.customerId = :customerId")
+//	List<ProductDto> findAllByCustomerId(@Param("customerId") Long customerId);
 
-//	List<Product> findAllByCustomer_Id(@Param("customer_Id") Long customer_Id);
+	//List<Product> findAllByCustomer(@Param("customerId") Long customerId);
 }

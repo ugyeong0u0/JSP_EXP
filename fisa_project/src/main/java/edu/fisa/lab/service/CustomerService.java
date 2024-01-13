@@ -41,7 +41,6 @@ public class CustomerService {
 	public void insertCustomer(Long customerId, Long productId) throws Exception {
 		Optional<Customer> c = customerRepository.findById(customerId);
 		Optional<Product> p = productRepository.findById(productId);
-		c.get().addProduct(p.get());
 		customerRepository.save(c.get());
 	}
 	

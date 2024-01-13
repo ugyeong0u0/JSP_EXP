@@ -28,11 +28,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @Builder
+
 @Entity
 @Table(name="customer")
 public class Customer {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
@@ -45,15 +45,12 @@ public class Customer {
 	private String password;
 
 	@OneToMany(mappedBy = "customer")
-	private List<Product> productList = new ArrayList<>();
+	private List<Draw> drawList = new ArrayList<>();
 	
-	public void addProduct(Product p) {
-		p.setCustomer(this);
-		this.productList.add(p);
+	public void addDraw(Draw d) {
+		d.setCustomer(this);
+		this.drawList.add(d);
 	}
-
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", password=" + password + "]";
-	}
+	
+	//== 생성 메서드 ==
 }

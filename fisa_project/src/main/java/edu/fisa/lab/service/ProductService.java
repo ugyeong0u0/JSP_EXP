@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import edu.fisa.lab.customer.dto.ProductDto;
 import edu.fisa.lab.model.domain.Category;
 import edu.fisa.lab.model.domain.Product;
+import edu.fisa.lab.repository.CustomerRepository;
 import edu.fisa.lab.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 
@@ -48,13 +49,15 @@ public class ProductService {
 		return product.getProductName();
 	}
 	
-	public List<ProductDto> findAllByCustomerId(Long customerId) {
-		List<ProductDto> pd2 = productRepository.findAllByCustomerId(customerId);
-		return pd2;
-	}
+//	@Transactional
+//	public List<ProductDto> findAllByCustomerId(Long customerId) {
+//		List<ProductDto> pd2 = productRepository.findAllByCustomerId(customerId);
+//		return pd2;
+//	}
 	
-//	public List<Product> findAllByCustomerId(Long customerId) {
-//		List<Product> pd2 = productRepository.findAllByCustomer_Id(customerId);
+//	@Transactional
+//	public List<Product> findAllByCustomer(Long customerId) {
+//		List<Product> pd2 = productRepository.findAllByCustomer(customerId);
 //		return pd2;
 //	}
 	
