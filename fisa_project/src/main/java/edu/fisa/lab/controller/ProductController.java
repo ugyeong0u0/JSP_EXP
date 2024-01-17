@@ -44,7 +44,6 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("productAll", one);
 		mv.setViewName("allpage");
-		System.out.println("=== " + one);
 		return mv;
 	}
 	

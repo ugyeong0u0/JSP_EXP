@@ -1,5 +1,6 @@
 package edu.fisa.lab.service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import edu.fisa.lab.model.domain.Product;
 import edu.fisa.lab.repository.CustomerRepository;
 import edu.fisa.lab.repository.DrawRepository;
 import edu.fisa.lab.repository.ProductRepository;
+import fisa.lab.exception.NotExistExceptions;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -28,13 +30,20 @@ public class DrawService {
 	private ProductRepository productRepository;
 
 	@Transactional
-	public void createDraw(Long productId, Long customerId) {
+	public void createDraw(Long productId, Long customerId) throws SQLException,NotExistExceptions{
 		Optional<Customer> c = customerRepository.findById(customerId);
 		Optional<Product> p = productRepository.findById(productId);
-		Draw d = new Draw();	
-		c.get().addDraw(d);
-		p.get().addDraw(d);
-		drawRepository.save(d);
+		Optional<Draw> d = drawRepository.findByProduct_productId(productId);
+		System.out.println(d.get().getDrawId());
+		if(d.isEmpty()) {
+			Draw newD = new Draw();	
+			c.get().addDraw(newD);
+			p.get().addDraw(newD);
+			drawRepository.save(newD);
+		} else {
+			System.out.println("이미 추가하신 상품입니다.");
+			throw new NotExistExceptions("이미 추가하신 상품입니다.");
+		}
 	}
 
 	public List<DrawDto> findAll(Long customerId) {
