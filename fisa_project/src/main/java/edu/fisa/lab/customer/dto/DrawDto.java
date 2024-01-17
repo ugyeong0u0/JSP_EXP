@@ -22,14 +22,17 @@ public class DrawDto {
 	private int size;
 	private Category category;
 	
-
-	public DrawDto(String name, String productName, int price, String brand, int size) {
+	public DrawDto(String name, String productName, int price, String brand, int size, Category category) {
 		super();
 		this.name = name;
 		this.productName = productName;
 		this.price = price;
 		this.brand = brand;
 		this.size = size;
+		this.category = category;
 	}
+	
+
+
 
 }

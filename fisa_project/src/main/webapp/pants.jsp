@@ -48,7 +48,7 @@
 		<a href=shose.jsp onclick="w3_close()" class="w3-bar-item w3-button">신발</a>
 		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
 		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
-		<a href="productIdView" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
+		<a href="drawAll" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
 	</nav>
 
 	<!-- Top menu -->
@@ -185,7 +185,13 @@
 				//한명 정보 검색시 호출되는 함수
 		function drawView(v){	
 			var xhttp = new XMLHttpRequest();
-			xhttp.open( "get", "Draws?productId="+v);
+			xhttp.open( "get", "drawCreate?productId="+v);
+			xhttp.send();
+		}
+		
+		function drawGet(){	
+			var xhttp = new XMLHttpRequest();
+			xhttp.open( "get", "drawAll");
 			xhttp.send();
 		}	
 	</script>
