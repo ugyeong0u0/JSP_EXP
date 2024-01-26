@@ -32,19 +32,14 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "product_id")
 	private Long productId;
 
-	@Column//데이터베이스와 매핑
 	private String productName;
 
-	@Column
 	private int price;
 
-	@Column
 	private String brand;
 
-	@Column
 	private int size;
 
 	private Category category;

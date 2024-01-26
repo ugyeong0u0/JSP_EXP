@@ -35,13 +35,10 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "customer_id")
 	private Long customerId;
 	
-	@Column
 	private String name;
 	
-	@Column
 	private String password;
 
 	@OneToMany(mappedBy = "customer")

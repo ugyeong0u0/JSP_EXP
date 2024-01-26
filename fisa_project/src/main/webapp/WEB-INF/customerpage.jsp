@@ -92,7 +92,6 @@ System.out.println(request.getAttribute("productAll"));
 				</tr>
 			</thead>
 	
-	<%-- 모든 기부자 정보 보기 : 기부자 id를 클릭하면 "재능 기부자"상세 보기 로직이 실행되어야 함 --%>
 	<c:forEach items="${requestScope.drawAll}" var="data">
 		 <tr>
 			<td>${data.name}</td>

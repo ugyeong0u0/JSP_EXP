@@ -12,7 +12,7 @@ System.out.println(request.getAttribute("productAll"));
 
 
 <head>
-	<title>상품 응모 사이트</title>
+	<title>전체 상품 조회</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -90,8 +90,7 @@ System.out.println(request.getAttribute("productAll"));
 					<th>category</th>
 				</tr>
 			</thead>
-	
-	<%-- 모든 기부자 정보 보기 : 기부자 id를 클릭하면 "재능 기부자"상세 보기 로직이 실행되어야 함 --%>
+
 	<c:forEach items="${requestScope.productAll}" var="data">
 		 <tr>
 			<td>${data.productName}</td>

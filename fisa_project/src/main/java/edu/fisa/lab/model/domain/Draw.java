@@ -27,7 +27,6 @@ public class Draw {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "draw_id")
 	private Long drawId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

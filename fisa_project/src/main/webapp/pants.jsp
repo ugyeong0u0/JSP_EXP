@@ -49,6 +49,7 @@
 		<a href=product.html onclick="w3_close()" class="w3-bar-item w3-button">상품 저장 페이지</a>
 		<a href="productAll" onclick="w3_close()" class="w3-bar-item w3-button">전체 상품 조회 페이지</a>
 		<a href="drawAll" onclick="w3_close()" class="w3-bar-item w3-button">고객 응모 내역 페이지</a>
+		<a href=showError.jsp onclick="w3_close()" class="w3-bar-item w3-button">에러</a>
 	</nav>
 
 	<!-- Top menu -->
@@ -64,7 +65,7 @@
 
 
 		<%
-		//로그인된 아이디가 있는지 읽어와보기
+		//로그인된 아이디가 있는지
 		Long customerId =(Long)session.getAttribute("customerId");
 		String name =(String)session.getAttribute("name");
 		%>
@@ -182,10 +183,13 @@
 			document.getElementById("mySidebar").style.display = "none";
 		}
 
-				//한명 정보 검색시 호출되는 함수
+		//한명 정보 검색시 호출되는 함수
 		function drawView(v){	
 			var xhttp = new XMLHttpRequest();
-			xhttp.open( "get", "drawCreate?productId="+v);
+			xhttp.onload = function() {
+				  alert(xhttp.responseText);
+			}
+			xhttp.open( "get", "drawCreate?productId="+v);//
 			xhttp.send();
 		}
 		
