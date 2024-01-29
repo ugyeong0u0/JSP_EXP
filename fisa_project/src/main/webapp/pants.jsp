@@ -186,7 +186,7 @@
 		//한명 정보 검색시 호출되는 함수
 		function drawView(v){	
 			var xhttp = new XMLHttpRequest();
-			xhttp.onload = function() {
+			xhttp.onload = function() { // 서버로부터 응답이 도착하면 실행 
 				if(xhttp.status ===200){
 					alert(xhttp.responseText);
 				}else{
@@ -194,8 +194,8 @@
 				}
 				  
 			};
-			xhttp.open( "get", "drawCreate?productId="+v);
-			xhttp.send();
+			xhttp.open( "get", "drawCreate?productId="+v); // httpGet 요청을 준비 
+			xhttp.send(); //http 요청보냄 
 		}
 		
 		function drawGet(){	
