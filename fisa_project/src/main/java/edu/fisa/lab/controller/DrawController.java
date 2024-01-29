@@ -3,6 +3,8 @@ package edu.fisa.lab.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -30,7 +32,10 @@ public class DrawController {
 	public String createDraw(@RequestParam("productId") Long productId, HttpSession session) throws NotExistExceptions {
 		try {
 			Long customerId = (Long) session.getAttribute("customerId");
-		//	drawService.createDraw(productId, customerId);
+			// drawService.createDraw(productId, customerId);
+			if (customerId == null) {
+				throw new NotExistExceptions("Customer ID not found!!!!");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new NotExistExceptions("Customer ID not found!!!!");
@@ -41,8 +46,8 @@ public class DrawController {
 
 	// 고객 응모 내역 조회
 	@RequestMapping(path = "/drawAll", method = RequestMethod.GET)
-	public ModelAndView findAll(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+	public ModelAndView findAll(HttpServletRequest request, HttpSession session) {
+
 		Long customerId = (Long) session.getAttribute("customerId");
 		List<DrawDto> d = drawService.findAll(customerId);
 
@@ -53,12 +58,13 @@ public class DrawController {
 	}
 
 	@ExceptionHandler(NotExistExceptions.class)
-	public String exceptionHandler(Exception e, Model m) {
+	public ResponseEntity exceptionHandler(Exception e, Model m) {
+//		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage()); // 뷰에 반환
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage()); // 고객 ID가 없는 경우 상태 코드 400과 함께 오류 메시지 반환
 		
-		m.addAttribute("errorMsg", "발생된 이슈 " + e.getMessage()); // 뷰에 반환
-		e.printStackTrace();
-		 System.out.println("실행********* ");
-		return "redirect:showError2.jsp";
+//		e.printStackTrace();
+//		System.out.println("실행********* ");
+//		return "redirect:showError2.jsp";
 	}
-	
+
 }

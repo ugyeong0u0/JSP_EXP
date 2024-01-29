@@ -187,9 +187,14 @@
 		function drawView(v){	
 			var xhttp = new XMLHttpRequest();
 			xhttp.onload = function() {
-				  alert(xhttp.responseText);
-			}
-			xhttp.open( "get", "drawCreate?productId="+v);//
+				if(xhttp.status ===200){
+					alert(xhttp.responseText);
+				}else{
+					window.location.href ='showError2.jsp';
+				}
+				  
+			};
+			xhttp.open( "get", "drawCreate?productId="+v);
 			xhttp.send();
 		}
 		

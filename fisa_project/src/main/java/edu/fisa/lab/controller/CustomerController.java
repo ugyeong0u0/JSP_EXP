@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.fisa.lab.customer.dto.CustomerDto;
 import edu.fisa.lab.service.CustomerService;
-import fisa.lab.exception.NotExistExceptions;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -24,7 +22,7 @@ public class CustomerController {
 	private CustomerService customerService;
 	// 회원 가입 시 
 	@RequestMapping(path = "/customer", method = RequestMethod.POST)
-	public String insertCustomer(CustomerDto customerDto, HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	public String insertCustomer(CustomerDto customerDto, HttpServletRequest request)throws ServletException, IOException {
 		Long customerId = customerService.insertCustomer(customerDto);
 		String name = request.getParameter("name");
 

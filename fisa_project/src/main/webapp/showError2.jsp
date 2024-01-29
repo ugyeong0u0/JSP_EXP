@@ -21,7 +21,7 @@
 		<h2>다시 메인에서 로그인 후 접근해주세요 </h2>
 			
 		<br><br><br>
-		<a href="${pageContext.request.contextPath}/index.html">메인 화면으로 이동하기</a>
+		<a href="${pageContext.request.contextPath}/pants.jsp">메인 화면으로 이동하기</a>
 	</center>
 	
 </body>
