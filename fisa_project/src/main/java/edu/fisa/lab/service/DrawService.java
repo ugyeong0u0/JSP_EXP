@@ -34,7 +34,6 @@ public class DrawService {
 		Optional<Customer> c = customerRepository.findById(customerId);
 		Optional<Product> p = productRepository.findById(productId);
 		Optional<Draw> d = drawRepository.findByProduct_productId(productId);
-		System.out.println(d.get().getDrawId());
 		if(d.isEmpty()) {
 			Draw newD = new Draw();	
 			c.get().addDraw(newD);

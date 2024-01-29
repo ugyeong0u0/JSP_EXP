@@ -21,8 +21,8 @@ public class ProductService {
 	
 	@Transactional
 	public ProductDto productOne(Long productId) {
-		Optional<Product> one = productRepository.findById(productId);
-		ProductDto dto = new ProductDto().toDto(one.get());
+		Optional<Product> one = productRepository.findById(productId); // 값이 존재 할수도 없을 수도 있음 
+		ProductDto dto = new ProductDto().toDto(one.get()); // productDto로 변경 
 		return dto;
 	}
 	
@@ -32,7 +32,7 @@ public class ProductService {
 		List<ProductDto> pList = pro.stream().map(p -> new ProductDto().toDto(p)).toList();
 		return pList;
 	}
-
+	// 상품 저장 
 	@Transactional
 	public String productInsert(ProductDto productDto) {
 		

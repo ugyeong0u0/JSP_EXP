@@ -1,5 +1,8 @@
 package fisa.lab.exception;
 
+import lombok.Getter;
+
+@Getter 
 public class NotExistExceptions extends Exception {
 	
 	public NotExistExceptions() {}
