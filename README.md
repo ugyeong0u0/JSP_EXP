@@ -321,15 +321,9 @@ Graph tree
 ![image](https://github.com/user-attachments/assets/9829b10f-731d-4f5f-b54d-33c79ddb9826)
 
 
-- `Throughput` : 단위 시간당 대상 서버(웹서버, WAS, DB 등)에서 처리되는 요청의 수를 말합니다. JMeter에서는 시간 단위를 보통 TPS(Transaction Per Second)로 표현합니다.
-- `Deviation` : 표준편차
-- 결과 보고서(chart-rersponseTime)
-    
-    [index.html](https://prod-files-secure.s3.us-west-2.amazonaws.com/e5e1ebf5-2501-431d-ace0-ffd31b125b42/66a79733-972d-4464-b023-784419321311/index.html)
-    
-
 - POST
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e5e1ebf5-2501-431d-ace0-ffd31b125b42/341012f1-0da7-4969-a114-0dc898fb4fa7/Untitled.png)
+![image](https://github.com/user-attachments/assets/0831c5a2-3264-4be6-bea6-5ad0088f57cd)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e5e1ebf5-2501-431d-ace0-ffd31b125b42/24306c78-2aad-4a27-bcc6-0ee8230f26ce/Untitled.png)
+
+![image](https://github.com/user-attachments/assets/b695472a-2596-4147-8463-bead1125c6d8)
