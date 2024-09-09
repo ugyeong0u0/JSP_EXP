@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/8f988286-7811-4070-8d5f-a2b27117853f)# fisa_limit
-
 
 
 - **개발 환경**
